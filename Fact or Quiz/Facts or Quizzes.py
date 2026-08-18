@@ -43,7 +43,9 @@ def change_settings():
     global game_list #imports the global list game_list to continue being used inside and outside of this function
     game_list = []
     root.geometry("400x500") #Makes GUI larger to show all radiobutton options avaliable
-    FactFrame.pack_forget() #Hides previous frame
+    FactFrame.pack_forget() #Hides previous frames
+    QuizFrame.pack_forget()
+    QuizFrameAnswer.pack_forget()
     GameSelectFrame.pack() #Displays selection frame to allow user to adjust settings
 
 def factgame():
@@ -67,56 +69,66 @@ def factgame():
     FactFrame.pack() #Shows fact frame 
     
 def quizgame():
+    QuizFrameAnswer.pack_forget()
+    QuizFrame.pack()
     if topic.get() == "english":
         if random.getrandbits(1) == 1: #Selects random integer between the amount of bits specified (in this case, 1 bit or 2 values)
-            quiz_answer = 1
+            quiz_answer.set(1)
             chosen_item.set(random.choice(Quizzes.true_english)) #Uses a true English question
         else: #Effectively 'if random.getrandbits(1) == 0:'
-            quiz_answer = 2
+            quiz_answer.set(2)
             chosen_item.set(random.choice(Quizzes.false_english)) #Uses a false English question
     elif topic.get() == "maths":
         if random.getrandbits(1) == 1:
-            quiz_answer = 1
+            quiz_answer.set(1)
             chosen_item.set(random.choice(Quizzes.true_maths))
         else:
-            quiz_answer = 2
+            quiz_answer.set(2)
             chosen_item.set(random.choice(Quizzes.false_maths))
     elif topic.get() == "history":
         if random.getrandbits(1) == 1:
-            quiz_answer = 1
+            quiz_answer.set(1)
             chosen_item.set(random.choice(Quizzes.true_history))
         else:
-            quiz_answer = 2
+            quiz_answer.set(2)
             chosen_item.set(random.choice(Quizzes.false_history))
 
     elif topic.get() == "science":
         if random.getrandbits(1) == 1:
-            quiz_answer = 1
+            quiz_answer.set(1)
             chosen_item.set(random.choice(Quizzes.true_science))
         else:
-            quiz_answer = 2
+            quiz_answer.set(2)
             chosen_item.set(random.choice(Quizzes.false_science))
     elif topic.get() == "computer":
         if random.getrandbits(1) == 1:
-            quiz_answer = 1
+            quiz_answer.set(1)
             chosen_item.set(random.choice(Quizzes.true_maths))
         else:
-            quiz_answer = 2
+            quiz_answer.set(2)
             chosen_item.set(random.choice(Quizzes.false_maths))
     GameSelectFrame.pack_forget() #Hides main menu frame
     QuizFrame.pack() #Shows game frame
 
 def true_answer():
-    player_answer = 1
+    QuizFrame.pack_forget()
+    player_answer.set(1)
     answer()
+
 def false_answer():
-    player_answer = 2
+    QuizFrame.pack_forget()
+    player_answer.set(2)
     answer()
-def answer():
-    if quiz_answer == player_answer:
-        printed_answer = "Correct!"
-    if quiz_answer != player_answer:
-        printed_answer = "Incorrect..."
+
+def answer():    
+    if quiz_answer.get() == player_answer.get():
+        printed_answer.set("Correct!")
+        score.set(score.get() + 1)
+    else:
+        printed_answer.set("Incorrect...")
+        score.set(score.get() - 1)
+    QuizFrameAnswer.pack()
+
 
 def colourpalette():
     subprocess.Popen(["notepad.exe", "Fact or Quiz/Colour_palette.py"]) #Opens notepad to the colour_palette.py file, allowing them to change the colours used in the program.
@@ -133,6 +145,8 @@ player_answer = tk.IntVar(value=0)
 printed_answer = tk.StringVar(value="none")
 game_list = []
 chosen_item = tk.StringVar(value="")
+score = tk.IntVar(value=0)
+
 
 GameSelectFrame = tk.Frame(root,
                             bg=backgroundcolour,                      
@@ -256,7 +270,7 @@ FactFrame = tk.Frame(root,
                     bg=backgroundcolour,                      
 )
 tk.Label(FactFrame,
-         text="Your fact is...",
+         text="Your fact is:",
          font = headingfont,
          fg = foregroundcolour,
          bg = backgroundcolour,
@@ -265,10 +279,7 @@ tk.Label(FactFrame,
          textvariable=chosen_item,
          fg = foregroundcolour,
          bg = backgroundcolour,
-         wraplength=360,
-         justify="left",
-         ).pack(padx=10, pady=10)
-
+         ).pack()
 tk.Button(FactFrame,
             text = "Again",
             fg = foregroundcolour,
@@ -290,7 +301,7 @@ QuizFrame = tk.Frame(root,
 
 
 tk.Label(QuizFrame,
-         text="Your true/false question is...",
+         text="Your true/false question is:",
          fg = foregroundcolour,
          bg = backgroundcolour,
          ).pack()
@@ -324,19 +335,29 @@ QuizFrameAnswer = tk.Frame(root,
                            bg=backgroundcolour
 )
 tk.Label(QuizFrameAnswer,
-         text="You got that question...",
+         text="You got that question:",
          fg = foregroundcolour,
          bg = backgroundcolour,
+         font = headingfont,
          ).pack()
-
 tk.Label(QuizFrameAnswer,
          textvariable=printed_answer,
          fg = foregroundcolour,
          bg = backgroundcolour,
-         wraplength=300,
-         justify="left",
+         font = standardfont,
          ).pack(padx=10, pady=10)
-
+tk.Label(QuizFrameAnswer,
+         text="Your score is:",
+         font = headingfont,
+         fg = foregroundcolour,
+         bg = backgroundcolour,
+         ).pack()
+tk.Label(QuizFrameAnswer,
+         textvariable=score,
+         fg = foregroundcolour,
+         bg = backgroundcolour,
+         font = standardfont,
+         ).pack()
 tk.Button(QuizFrameAnswer,
             text = "Again",
             fg = foregroundcolour,
