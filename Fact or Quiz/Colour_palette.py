@@ -23,7 +23,7 @@
 
 #Lilac
 foregroundcolour = "#1B1725"
-backgroundcolour = "#EED9F1"
+backgroundcolour = "#F3AEFC"
 
 #Light blue
 #foregroundcolour = "#383F51"
