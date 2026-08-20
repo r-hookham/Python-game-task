@@ -3,6 +3,9 @@ import tkinter as tk
 from tkinter import messagebox #Allows for pop-up error boxes when program isn't used correctly, e.g. not selecting a game or topic
 import random
 import subprocess #Allows for the additional script that allows for changing the colour palette without 
+import json #Allows for saving score and fact_count variables for future sessions
+import os
+
 
 import Colour_palette #Allows for easily customisable colours in a small, editable .py file
 import Facts #Imports the fact list into the program so that all the fact lists can be saved as 'game_list'
@@ -10,10 +13,11 @@ import Quizzes
 
 root = tk.Tk()
 root.title("Facts or Quizzes Game")
-root.geometry("400x500") #Makes GUI larger to show all radiobutton options avaliable when on starting menu
+root.geometry("400x600") #Makes GUI larger to show all radiobutton options avaliable when on starting menu
 root.resizable(False, False) #Keeps formatting the same regardless of whether user decides to use a tall, wide, small, large, or fullscreen window
 game_list = [] #List of possible facts or quizzes at any one time
 
+FILE_PATH = "save.json"
 
 #Colour palette
 foregroundcolour = Colour_palette.foregroundcolour #Changes colours to align to the ones set in Colour_palette.py file
@@ -42,7 +46,7 @@ def confirm():
 def change_settings():
     global game_list #imports the global list game_list to continue being used inside and outside of this function
     game_list = []
-    root.geometry("400x500") #Makes GUI larger to show all radiobutton options avaliable
+    root.geometry("400x600") #Makes GUI larger to show all radiobutton options avaliable
     FactFrame.pack_forget() #Hides previous frames
     QuizFrame.pack_forget()
     QuizFrameAnswer.pack_forget()
@@ -66,7 +70,8 @@ def factgame():
 
     chosen_item.set(game_list.pop()) #Selects an item from the fact list and sets variable 'chosen_item' so it can be shown in the label on the gameframe
     GameSelectFrame.pack_forget() #Hides previous frame
-    FactFrame.pack() #Shows fact frame 
+    FactFrame.pack() #Shows fact frame
+    fact_count.set(fact_count.get() + 1)
     
 def quizgame():
     QuizFrameAnswer.pack_forget()
@@ -129,7 +134,26 @@ def answer():
         score.set(score.get() - 1)
     QuizFrameAnswer.pack()
 
-
+def save_data(): 
+    data_to_save = {
+        "score": score.get(),
+        "fact count": fact_count.get()
+    }
+    with open("save.json", "w") as json_file:
+        json.dump(data_to_save, json_file, indent=4)
+    print("Data saved successfully.")
+def load_data():
+    # Only try to load if the file actually exists
+    if os.path.exists(FILE_PATH):
+        with open(FILE_PATH, "r") as json_file:
+            loaded_data = json.load(json_file)
+        
+        # Inject the values back into Tkinter fields using .set()
+        score.set(loaded_data.get("score", 0))
+        fact_count.set(loaded_data.get("fact", 0))
+        print("Data loaded successfully.")
+    else:
+        print("No saved data found.")
 def colourpalette():
     subprocess.Popen(["notepad.exe", "Fact or Quiz/Colour_palette.py"]) #Opens notepad to the colour_palette.py file, allowing them to change the colours used in the program.
     
@@ -146,6 +170,7 @@ printed_answer = tk.StringVar(value="none")
 game_list = []
 chosen_item = tk.StringVar(value="")
 score = tk.IntVar(value=0)
+fact_count = tk.IntVar(value=0)
 
 
 GameSelectFrame = tk.Frame(root,
@@ -239,9 +264,33 @@ tk.Button(GameSelectFrame,
             text = "Confirm",
             fg = foregroundcolour,
             bg = backgroundcolour,
-            
             command = confirm
-            ).pack(padx=10, pady=5)
+            ).pack(padx=10, pady=10)
+tk.Label(GameSelectFrame,
+         text=f"You've seen this many facts:",
+         font = headingfont,
+         fg = foregroundcolour,
+         bg = backgroundcolour,
+         ).pack()
+tk.Label(GameSelectFrame,
+         textvariable=fact_count,
+         fg = foregroundcolour,
+         bg = backgroundcolour,
+         font = standardfont,
+         ).pack()
+tk.Label(GameSelectFrame,
+         text="Your quiz score is:",
+         font = headingfont,
+         fg = foregroundcolour,
+         bg = backgroundcolour,
+         ).pack()
+tk.Label(GameSelectFrame,
+         textvariable=score,
+         fg = foregroundcolour,
+         bg = backgroundcolour,
+         font = standardfont,
+         ).pack()
+
 
 tk.Label(GameSelectFrame, 
          text="If you'd like to read multiple facts quickly, I'd recommend using tab and space to select next fact without having to mouse when the button moves.",
@@ -279,6 +328,19 @@ tk.Label(FactFrame,
          textvariable=chosen_item,
          fg = foregroundcolour,
          bg = backgroundcolour,
+         wraplength = 360,
+         ).pack()
+tk.Label(FactFrame,
+         text=f"You've seen this many facts:",
+         font = headingfont,
+         fg = foregroundcolour,
+         bg = backgroundcolour,
+         ).pack()
+tk.Label(FactFrame,
+         textvariable=fact_count,
+         fg = foregroundcolour,
+         bg = backgroundcolour,
+         font = standardfont,
          ).pack()
 tk.Button(FactFrame,
             text = "Again",
@@ -347,7 +409,7 @@ tk.Label(QuizFrameAnswer,
          font = standardfont,
          ).pack(padx=10, pady=10)
 tk.Label(QuizFrameAnswer,
-         text="Your score is:",
+         text="Your quiz score is:",
          font = headingfont,
          fg = foregroundcolour,
          bg = backgroundcolour,
