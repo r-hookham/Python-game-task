@@ -19,7 +19,7 @@ true_history = [
             
 ]
 false_history = [
-    "When the British founded the United States, David Martinez found green oranges, and decided to call them limes to trick the other British that travelled with him, despite their sweet flavour.",
+    "When the British founded the United States, David Martinez found green oranges, and decided to call them limes to trick the other British that travelled with him into not eating them, despite their sweet flavour, which they didn't know because they never tasted them.",
 
 ]
 
