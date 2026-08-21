@@ -17,8 +17,6 @@ root.geometry("400x600") #Makes GUI larger to show all radiobutton options avali
 root.resizable(False, False) #Keeps formatting the same regardless of whether user decides to use a tall, wide, small, large, or fullscreen window
 game_list = [] #List of possible facts or quizzes at any one time
 
-FILE_PATH = "save.json"
-
 #Colour palette
 foregroundcolour = Colour_palette.foregroundcolour #Changes colours to align to the ones set in Colour_palette.py file
 backgroundcolour = Colour_palette.backgroundcolour
@@ -108,10 +106,10 @@ def quizgame():
     elif topic.get() == "computer":
         if random.getrandbits(1) == 1:
             quiz_answer.set(1)
-            chosen_item.set(random.choice(Quizzes.true_maths))
+            chosen_item.set(random.choice(Quizzes.true_computer))
         else:
             quiz_answer.set(2)
-            chosen_item.set(random.choice(Quizzes.false_maths))
+            chosen_item.set(random.choice(Quizzes.false_computer))
     GameSelectFrame.pack_forget() #Hides main menu frame
     QuizFrame.pack() #Shows game frame
 
@@ -134,26 +132,7 @@ def answer():
         score.set(score.get() - 1)
     QuizFrameAnswer.pack()
 
-def save_data(): 
-    data_to_save = {
-        "score": score.get(),
-        "fact count": fact_count.get()
-    }
-    with open("save.json", "w") as json_file:
-        json.dump(data_to_save, json_file, indent=4)
-    print("Data saved successfully.")
-def load_data():
-    # Only try to load if the file actually exists
-    if os.path.exists(FILE_PATH):
-        with open(FILE_PATH, "r") as json_file:
-            loaded_data = json.load(json_file)
-        
-        # Inject the values back into Tkinter fields using .set()
-        score.set(loaded_data.get("score", 0))
-        fact_count.set(loaded_data.get("fact", 0))
-        print("Data loaded successfully.")
-    else:
-        print("No saved data found.")
+
 def colourpalette():
     subprocess.Popen(["notepad.exe", "Fact or Quiz/Colour_palette.py"]) #Opens notepad to the colour_palette.py file, allowing them to change the colours used in the program.
     
@@ -364,6 +343,7 @@ QuizFrame = tk.Frame(root,
 
 tk.Label(QuizFrame,
          text="Your true/false question is:",
+         font = headingfont,
          fg = foregroundcolour,
          bg = backgroundcolour,
          ).pack()
