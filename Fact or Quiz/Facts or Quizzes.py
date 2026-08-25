@@ -2,9 +2,8 @@
 import tkinter as tk
 from tkinter import messagebox #Allows for pop-up error boxes when program isn't used correctly, e.g. not selecting a game or topic
 import random
-import subprocess #Allows for the additional script that allows for changing the colour palette without 
-import json #Allows for saving score and fact_count variables for future sessions
-import os
+import subprocess #Opens+
+the additional script that allows for changing the colour palette without 
 
 
 import Colour_palette #Allows for easily customisable colours in a small, editable .py file
@@ -22,7 +21,7 @@ foregroundcolour = Colour_palette.foregroundcolour #Changes colours to align to 
 backgroundcolour = Colour_palette.backgroundcolour
 
 #Fonts
-headingfont = ("Arial", 12, "bold") #
+headingfont = ("Arial", 12, "bold") #Font used for large titles
 standardfont = ("Arial", 10) #Font used for small titles
 paragraphfont = ("Arial", 8) #Small font used for paragraphs
 
@@ -69,8 +68,9 @@ def factgame():
     chosen_item.set(game_list.pop()) #Selects an item from the fact list and sets variable 'chosen_item' so it can be shown in the label on the gameframe
     GameSelectFrame.pack_forget() #Hides previous frame
     FactFrame.pack() #Shows fact frame
+
     fact_count.set(fact_count.get() + 1)
-    
+
 def quizgame():
     QuizFrameAnswer.pack_forget()
     QuizFrame.pack()
@@ -131,7 +131,6 @@ def answer():
         printed_answer.set("Incorrect...")
         score.set(score.get() - 1)
     QuizFrameAnswer.pack()
-
 
 def colourpalette():
     subprocess.Popen(["notepad.exe", "Fact or Quiz/Colour_palette.py"]) #Opens notepad to the colour_palette.py file, allowing them to change the colours used in the program.
