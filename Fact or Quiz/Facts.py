@@ -11,8 +11,6 @@ english = [
     "The only 15-letter word that can be spelled without repeating a letter is 'uncopyrightable'.",
     "'I' is the most spoken word in the English language.",
     "The symbol on the 'pound' key (#) is called an octothorpe.",
-    "J.K Rowling is bad.",
-    "Zohran Kwame Mamdani is good.",
 
 ]
 
@@ -29,7 +27,7 @@ maths = [
 history = [
     "Early man domesticated dogs for companionship, and cats for whatever we have cats for.",
     "In Ancient Rome, there were some female gladiators, called 'gladiatrix' as singular, and 'gladiatrices' plural. There were much less gladiatrices compared to the male 'gladiators'. ",
-    "Hitler shaved his moustache in the iconic square shape so he could wear a gas mask with",
+    "Hitler shaved his moustache in the iconic line so he could wear a gas mask without having to shave it all off.",
     "In the last 4000 years no new animals have been domesticated.",
     "When the Titanic sank, 2228 people were on it. Only 706 survived.",
     "Paper was invented early in the second century by Chinese eunuch.",

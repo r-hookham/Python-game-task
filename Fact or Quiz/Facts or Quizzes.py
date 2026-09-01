@@ -2,9 +2,8 @@
 import tkinter as tk
 from tkinter import messagebox #Allows for pop-up error boxes when program isn't used correctly, e.g. not selecting a game or topic
 import random
-import subprocess #Allows for the additional script that allows for changing the colour palette without 
-import json #Allows for saving score and fact_count variables for future sessions
-import os
+import subprocess #Opens+
+the additional script that allows for changing the colour palette without 
 
 
 import Colour_palette #Allows for easily customisable colours in a small, editable .py file
@@ -17,14 +16,12 @@ root.geometry("400x600") #Makes GUI larger to show all radiobutton options avali
 root.resizable(False, False) #Keeps formatting the same regardless of whether user decides to use a tall, wide, small, large, or fullscreen window
 game_list = [] #List of possible facts or quizzes at any one time
 
-FILE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "save.json")
-
 #Colour palette
 foregroundcolour = Colour_palette.foregroundcolour #Changes colours to align to the ones set in Colour_palette.py file
 backgroundcolour = Colour_palette.backgroundcolour
 
 #Fonts
-headingfont = ("Arial", 12, "bold") #
+headingfont = ("Arial", 12, "bold") #Font used for large titles
 standardfont = ("Arial", 10) #Font used for small titles
 paragraphfont = ("Arial", 8) #Small font used for paragraphs
 
@@ -73,7 +70,6 @@ def factgame():
     FactFrame.pack() #Shows fact frame
 
     fact_count.set(fact_count.get() + 1)
-    save_data()
 
 def quizgame():
     QuizFrameAnswer.pack_forget()
@@ -110,10 +106,10 @@ def quizgame():
     elif topic.get() == "computer":
         if random.getrandbits(1) == 1:
             quiz_answer.set(1)
-            chosen_item.set(random.choice(Quizzes.true_maths))
+            chosen_item.set(random.choice(Quizzes.true_computer))
         else:
             quiz_answer.set(2)
-            chosen_item.set(random.choice(Quizzes.false_maths))
+            chosen_item.set(random.choice(Quizzes.false_computer))
     GameSelectFrame.pack_forget() #Hides main menu frame
     QuizFrame.pack() #Shows game frame
 
@@ -134,44 +130,7 @@ def answer():
     else:
         printed_answer.set("Incorrect...")
         score.set(score.get() - 1)
-    save_data()
     QuizFrameAnswer.pack()
-
-def save_data(): 
-    data_to_save = {
-        "score": score.get(),
-        "fact_count": fact_count.get()
-    }
-
-    with open(FILE_PATH, "w") as json_file:
-        json.dump(data_to_save, json_file, indent=4)
-
-    print("Data saved successfully.")
-
-
-def load_data():
-    # Only try to load if the file actually exists
-    if os.path.exists(FILE_PATH):
-        with open(FILE_PATH, "r") as json_file:
-            loaded_data = json.load(json_file)
-    else:
-        data_to_save = {
-            "score": 0,
-            "fact_count": 0
-        }
-
-        with open(FILE_PATH, "w") as json_file:
-            json.dump(data_to_save, json_file, indent=4)
-
-        print("No save file found. Created a new save file.")
-        # Inject the values back into Tkinter fields using .set()
-        score.set(loaded_data.get("score", 0))
-        fact_count.set(loaded_data.get("fact_count", 0))
-
-        print("Data loaded successfully.")
-    else:
-        print("No saved data found.")
-
 
 def colourpalette():
     subprocess.Popen(["notepad.exe", "Fact or Quiz/Colour_palette.py"]) #Opens notepad to the colour_palette.py file, allowing them to change the colours used in the program.
@@ -191,7 +150,6 @@ chosen_item = tk.StringVar(value="")
 score = tk.IntVar(value=0)
 fact_count = tk.IntVar(value=0)
 
-load_data()
 
 GameSelectFrame = tk.Frame(root,
                             bg=backgroundcolour,                      
@@ -384,6 +342,7 @@ QuizFrame = tk.Frame(root,
 
 tk.Label(QuizFrame,
          text="Your true/false question is:",
+         font = headingfont,
          fg = foregroundcolour,
          bg = backgroundcolour,
          ).pack()
