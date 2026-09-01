@@ -2,8 +2,7 @@
 import tkinter as tk
 from tkinter import messagebox #Allows for pop-up error boxes when program isn't used correctly, e.g. not selecting a game or topic
 import random
-import subprocess #Opens+
-the additional script that allows for changing the colour palette without 
+import subprocess #Opens the additional script that allows for changing the colour palette without 
 
 
 import Colour_palette #Allows for easily customisable colours in a small, editable .py file
@@ -127,7 +126,7 @@ def answer():
     if quiz_answer.get() == player_answer.get():
         printed_answer.set("Correct!")
         score.set(score.get() + 1)
-    else:
+    elif quiz_answer.get() != player_answer.get():
         printed_answer.set("Incorrect...")
         score.set(score.get() - 1)
     QuizFrameAnswer.pack()
@@ -270,14 +269,7 @@ tk.Label(GameSelectFrame,
          ).pack()
 
 
-tk.Label(GameSelectFrame, 
-         text="If you'd like to read multiple facts quickly, I'd recommend using tab and space to select next fact without having to mouse when the button moves.",
-         font=paragraphfont,
-         bg=backgroundcolour,
-         fg=foregroundcolour,
-         wraplength=360,
 
-         ).pack(padx=10, pady=5)
 tk.Label(GameSelectFrame, 
          text="If you'd like to use a different colour palette, change the colours in Colour_palette.py, or click the button below. (Only works on Windows)",
          font=paragraphfont,

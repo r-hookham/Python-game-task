@@ -1,0 +1,7 @@
+{
+    "python.testing.pytestArgs": [
+        "Fact or Quiz"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}
