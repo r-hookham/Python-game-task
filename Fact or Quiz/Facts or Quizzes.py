@@ -1,8 +1,8 @@
 #Imports
 import tkinter as tk
 from tkinter import messagebox #Allows for pop-up error boxes when program isn't used correctly, e.g. not selecting a game or topic
-import random
-import subprocess #Opens the additional script that allows for changing the colour palette without 
+import random #Randomizes fact/quiz order
+import subprocess #Allows for the additional script that allows for changing the colour palette without 
 
 
 import Colour_palette #Allows for easily customisable colours in a small, editable .py file
@@ -28,7 +28,7 @@ paragraphfont = ("Arial", 8) #Small font used for paragraphs
 
 def confirm():
     if game.get() == 0: 
-           tk.messagebox.showerror("Error", "Error 1: Please select a game before confirming.")
+        messagebox.showerror("Error", "Error 1: Please select a game before confirming.")
     elif topic.get() == "none":
         messagebox.showerror("Error", "Error 2: Please select a topic.")
     elif game.get() == 1:
@@ -53,23 +53,29 @@ def factgame():
 
     if not game_list:
         if topic.get() == "english":
-            game_list = Facts.english
+            game_list = Facts.english.copy()
+
         elif topic.get() == "maths":
-            game_list = Facts.maths
+            game_list = Facts.maths.copy()
+
         elif topic.get() == "history":
-            game_list = Facts.history
+            game_list = Facts.history.copy()
+
         elif topic.get() == "science":
-            game_list = Facts.science
+            game_list = Facts.science.copy()
+
         elif topic.get() == "computer":
-            game_list = Facts.computer
-    random.shuffle(game_list) #Shuffles the list of facts or quizzes into a random order
+            game_list = Facts.computer.copy()
 
-    chosen_item.set(game_list.pop()) #Selects an item from the fact list and sets variable 'chosen_item' so it can be shown in the label on the gameframe
-    GameSelectFrame.pack_forget() #Hides previous frame
-    FactFrame.pack() #Shows fact frame
+        random.shuffle(game_list)
 
-    fact_count.set(fact_count.get() + 1)
+    if game_list:
+        chosen_item.set(game_list.pop())
 
+        GameSelectFrame.pack_forget()
+        FactFrame.pack()
+
+        fact_count.set(fact_count.get() + 1)
 def quizgame():
     QuizFrameAnswer.pack_forget()
     QuizFrame.pack()
@@ -148,7 +154,6 @@ game_list = []
 chosen_item = tk.StringVar(value="")
 score = tk.IntVar(value=0)
 fact_count = tk.IntVar(value=0)
-
 
 GameSelectFrame = tk.Frame(root,
                             bg=backgroundcolour,                      
@@ -267,8 +272,6 @@ tk.Label(GameSelectFrame,
          bg = backgroundcolour,
          font = standardfont,
          ).pack()
-
-
 
 tk.Label(GameSelectFrame, 
          text="If you'd like to use a different colour palette, change the colours in Colour_palette.py, or click the button below. (Only works on Windows)",

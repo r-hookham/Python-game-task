@@ -1,7 +1,7 @@
 #English, maths, history, science or computer
 
 english = [
-    "An ellipsis (...) is a way to end a sentence with a ",
+    "An ellipsis (...) is a way to show a sentence has been ended with a pause, leaving out words or trailling off.",
     "Foreshadowing is a literary device that writers utilize as a means to indicate or hint to readers something that is to follow or appear later in a story."
     "During Shakespeare's lifetime, he added 1,700 additional words to the English language.",
     "The most common letter in the English language.",
@@ -11,7 +11,7 @@ english = [
     "The only 15-letter word that can be spelled without repeating a letter is 'uncopyrightable'.",
     "'I' is the most spoken word in the English language.",
     "The symbol on the 'pound' key (#) is called an octothorpe.",
-
+    ""
 ]
 
 maths = [
@@ -22,6 +22,13 @@ maths = [
     "Negative numbers were first used in China during roughly 200 BCE.",
     "Google's name comes from a mispelling of the number, googol, to represent it's vast database of knowledge. A googol is 10 to the power of 100, or this: 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.",
     "The equal sign (=) first appeared in 1557, by Robert Recorde, a Welsh mathematician.",
+    "The number '4' is the only number to have the same amount of letters as the number itself is in English.",
+    "The word 'hundred' comes from the old Norse term 'hundrath', meaning 120 rather than 100.",
+    "In a room of 23 people there’s a 50% chance that two people have the same birthday.",
+    "Mathematical equations were only invented in the 16th century. Before that, equations were written out in words. e.g. 10 plus 20 equals 30",
+    "Every odd number has an 'e' in it in English.",
+    "There is no zero in Roman numerals.",
+    "-40 °C is equal to -40 °F.",
 ]
 
 history = [
@@ -32,8 +39,15 @@ history = [
     "When the Titanic sank, 2228 people were on it. Only 706 survived.",
     "Paper was invented early in the second century by Chinese eunuch.",
     "Carrots used to be purple, white, red and black, and were grown to be orange to be less bitter and more sweet compared to the original colours, and legend has it they were changed tribute to William of Orange ",
-    "People used to be put in barrels as a form of torture."
-
+    "People used to be put in barrels as a form of torture.",
+    "Aboriginal people have occupied mainland Australia for at least 65,000 years.",
+    "Egyptian men and women both wore makeup. Eye paint was often green (oxidised copper) or black (lead). This offered sun protection as believed magical healing powers.",
+    "Aphrodite was the goddess of love and beauty, and the Greeks believed she was created from the foam of the sea on the shores of Paphos, Cyprus.",
+    "Aphrodite was considered the most beautiful of the gods, later married Hephaetus, the god of metalwork and fire",
+    "Aphrodite's sacred animal was the dove.",
+    "Hades was the god of the death.",
+    "Athena was the Greek goddess of wisdom, skill and war.",
+    
 ]
 
 science = [
@@ -64,7 +78,7 @@ computer = [
     "The Original 'The Legend of Zelda' released in 1986 in Japan and 1987 in Europe and Australia.",
     "Keyboards with the standard (100%) layout, arrow keys, function keys and numberpad have usually have 104 keys.",
     "Despite DOOM (1993) only being released for MS-DOS, due to having source code released by its developers (id Software), as well as very low hardware requirements, specifically using no GPU rendering, and instead rendering all graphics with the CPU, meant that DOOM (1993) has made a history for being able to be ran on web browsers, calculators, MS Paint and also, strangly, pregnancy tests.",
-    "The Nintendo 3DS family of systems is able to play 3DS, DS and Game Boy Advance games through backwards compatibility.",
+    "The Nintendo 3DS family of systems is able to play 3DS and DS cartridges through backwards compatibility.",
     "'New' 3DS systems feature an 804mHz CPU with an L2 cache, while the non-'New' models have a 268mHz CPU with only an L1 cache.",
     "'New' 3DS has two additional trigger buttons called 'ZL' and 'ZR', and a secondary 'C Stick', used to control the camera in a selection of games.",
     "PNG image files use lossless compression, meaning they have higher quality, especially when scaled up, as well as an additional alpha channel, allowing images to have transparency.",
@@ -73,4 +87,7 @@ computer = [
     "The first ever video game was 'Tennis for 2' in 1958 to demonstrate at the Brookhaven National Laboratory's annual public exhibition that the Donner Model 30 analog computer could simulate wind resistance trajectories.",
     "The average person`s left hand does 56% of the typing.",
     "The 'save' icon on the Microsoft Office Suite and many other programs shows a floppy disk with the shutter on backwards.",
+    "I'd just like to interject for a moment. What you're refering to as Linux, is in fact, GNU/Linux, or as I've recently taken to calling it, GNU plus Linux. Linux is not an operating system unto itself, but rather another free component of a fully functioning GNU system made useful by the GNU corelibs, shell utilities and vital system components comprising a full OS as defined by POSIX.",
+    "Many computer users run a modified version of the GNU system every day, without realizing it. Through a peculiar turn of events, the version of GNU which is widely used today is often called Linux, and many of its users are not aware that it is basically the GNU system, developed by the GNU Project.",
+    "There really is a Linux, and these people are using it, but it is just a part of the system they use. Linux is the kernel: the program in the system that allocates the machine's resources to the other programs that you run. The kernel is an essential part of an operating system, but useless by itself; it can only function in the context of a complete operating system. Linux is normally used in combination with the GNU operating system: the whole system is basically GNU with Linux added, or GNU/Linux. All the so-called Linux distributions are really distributions of GNU/Linux!",
 ]
