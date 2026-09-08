@@ -11,7 +11,7 @@ english = [
     "The only 15-letter word that can be spelled without repeating a letter is 'uncopyrightable'.",
     "'I' is the most spoken word in the English language.",
     "The symbol on the 'pound' key (#) is called an octothorpe.",
-    ""
+
 ]
 
 maths = [
@@ -78,7 +78,7 @@ computer = [
     "The Original 'The Legend of Zelda' released in 1986 in Japan and 1987 in Europe and Australia.",
     "Keyboards with the standard (100%) layout, arrow keys, function keys and numberpad have usually have 104 keys.",
     "Despite DOOM (1993) only being released for MS-DOS, due to having source code released by its developers (id Software), as well as very low hardware requirements, specifically using no GPU rendering, and instead rendering all graphics with the CPU, meant that DOOM (1993) has made a history for being able to be ran on web browsers, calculators, MS Paint and also, strangly, pregnancy tests.",
-    "The Nintendo 3DS family of systems is able to play 3DS and DS cartridges through backwards compatibility.",
+    "The Nintendo 3DS family of systems is able to play 3DS, DS and Game Boy Advance games through backwards compatibility.",
     "'New' 3DS systems feature an 804mHz CPU with an L2 cache, while the non-'New' models have a 268mHz CPU with only an L1 cache.",
     "'New' 3DS has two additional trigger buttons called 'ZL' and 'ZR', and a secondary 'C Stick', used to control the camera in a selection of games.",
     "PNG image files use lossless compression, meaning they have higher quality, especially when scaled up, as well as an additional alpha channel, allowing images to have transparency.",
@@ -87,7 +87,4 @@ computer = [
     "The first ever video game was 'Tennis for 2' in 1958 to demonstrate at the Brookhaven National Laboratory's annual public exhibition that the Donner Model 30 analog computer could simulate wind resistance trajectories.",
     "The average person`s left hand does 56% of the typing.",
     "The 'save' icon on the Microsoft Office Suite and many other programs shows a floppy disk with the shutter on backwards.",
-    "I'd just like to interject for a moment. What you're refering to as Linux, is in fact, GNU/Linux, or as I've recently taken to calling it, GNU plus Linux. Linux is not an operating system unto itself, but rather another free component of a fully functioning GNU system made useful by the GNU corelibs, shell utilities and vital system components comprising a full OS as defined by POSIX.",
-    "Many computer users run a modified version of the GNU system every day, without realizing it. Through a peculiar turn of events, the version of GNU which is widely used today is often called Linux, and many of its users are not aware that it is basically the GNU system, developed by the GNU Project.",
-    "There really is a Linux, and these people are using it, but it is just a part of the system they use. Linux is the kernel: the program in the system that allocates the machine's resources to the other programs that you run. The kernel is an essential part of an operating system, but useless by itself; it can only function in the context of a complete operating system. Linux is normally used in combination with the GNU operating system: the whole system is basically GNU with Linux added, or GNU/Linux. All the so-called Linux distributions are really distributions of GNU/Linux!",
 ]

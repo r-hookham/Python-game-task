@@ -45,14 +45,21 @@ false_maths = [
 ]
 
 true_history = [
-    "Early man domesticated dogs for companionship, and cats for eating pests and rodents.",
+    "Early man domesticated dogs for companionship, and cats for whatever we have cats for.",
     "In Ancient Rome, there were some female gladiators, called 'gladiatrix' as singular, and 'gladiatrices' plural. There were much less gladiatrices compared to the male 'gladiators'. ",
     "Hitler shaved his moustache in the iconic line so he could wear a gas mask without having to shave it all off.",
     "In the last 4000 years no new animals have been domesticated.",
     "When the Titanic sank, 2228 people were on it. Only 706 survived.",
     "Paper was invented early in the second century by Chinese eunuch.",
-    "Carrots used to be purple, white, red and black, and were grown to be orange to be less bitter and more sweet compared to the original colours, and legend has it they were changed tribute to William of Orange.",
-    "People used to be put in barrels as a form of torture."
+    "Carrots used to be purple, white, red and black, and were grown to be orange to be less bitter and more sweet compared to the original colours, and legend has it they were changed tribute to William of Orange ",
+    "People used to be put in barrels as a form of torture.",
+    "Aboriginal people have occupied mainland Australia for at least 65,000 years.",
+    "Egyptian men and women both wore makeup. Eye paint was often green (oxidised copper) or black (lead). This offered sun protection as believed magical healing powers.",
+    "Aphrodite was the goddess of love and beauty, and the Greeks believed she was created from the foam of the sea on the shores of Paphos, Cyprus.",
+    "Aphrodite was considered the most beautiful of the gods, later married Hephaetus, the god of metalwork and fire",
+    "Aphrodite's sacred animal was the dove.",
+    "Hades was the god of the death.",
+    "Athena was the Greek goddess of wisdom, skill and war.",
 ]
 false_history = [
     "When the British founded the United States, David Martinez found green oranges, and decided to call them limes to trick the other British that travelled with him into not eating them, despite their sweet flavour, which they didn't know because they never tasted them.",
